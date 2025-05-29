@@ -1,0 +1,57 @@
+# FocusOS Daily Dev Log
+
+**Date:** 2025-05-28  
+**Module/Feature:** To-Do List Tracker (Initial Setup & Persistence)  
+**Time Spent:** ~2 hours  
+
+---
+
+### What I Worked On Today
+- Initialized the FocusOS repo with Vite and Tailwind CSS setup  
+- Created a modular to-do list feature inside `modules/todo.js`  
+- Implemented adding, rendering, and deleting tasks dynamically  
+- Added persistence of tasks using browser `localStorage`  
+- Fixed PostCSS and Tailwind configuration errors  
+- Cleaned up folder structure for better project organization  
+
+### What I Learned / Challenges Faced
+- Learned the Vite dev environment and how it serves the project live  
+- Discovered how to initialize and configure Tailwind CSS properly  
+- Understood basics of `localStorage` for data persistence  
+- Troubleshot PostCSS plugin errors related to Tailwind  
+- Improved modular JavaScript structure for maintainability  
+
+### GitHub Commit Summary
+- Initial Vite + Tailwind setup commit
+- Added modular todo.js with task add/delete and persistence
+- Fixed Tailwind and PostCSS configuration errors
+
+### Next Steps / Plan for Tomorrow
+- Add functionality to mark tasks as completed (checkboxes)  
+- Implement task filtering (All / Active / Completed)  
+- Style UI elements with Tailwind for a clean, responsive design  
+- Push commits with descriptive messages and track progress in GitHub  
+
+---
+
+### Code Snippet / Important Notes
+```js
+// Saving and rendering tasks with localStorage persistence
+function saveTasks(tasks) {
+  localStorage.setItem('focusos-tasks', JSON.stringify(tasks));
+}
+
+function renderTasks(tasks) {
+  list.innerHTML = '';
+  tasks.forEach((task, index) => {
+    // Creates each task item with delete button
+    const li = document.createElement('li');
+    li.className = "bg-gray-800 p-2 rounded flex justify-between items-center";
+    li.innerHTML = `
+      <span>${task}</span>
+      <button data-index="${index}" class="text-red-500 hover:text-red-700">🗑️</button>
+    `;
+    list.appendChild(li);
+  });
+}
+
