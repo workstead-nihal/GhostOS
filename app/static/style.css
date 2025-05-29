@@ -14,3 +14,12 @@ body {
   font-family: monospace;
   font-size: 80px;
 }
+
+nav {
+  margin-top: 20px;
+}
+select {
+  font-size: 80px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}

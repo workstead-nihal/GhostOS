@@ -10,15 +10,18 @@
     <header>
         <h1>Welcome to GhostOS</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a>Mind Module</a></li>
-            <li><a></a>Task Module</li>
-            <li><a>Study Module</a></li>
-            <li><a>Clock</a></li>
-            <li><a>Calendar</a></li>
-            <li><a>settings</a></li>
-        </ul>
+         <nav>
+            <label for="module-select">Go to module:</label>
+            <select id="module-select" onchange="location = this.value;">
+                <option value="/">Mind Module</option>
+                <option value="/about">Task Module</option>
+                <option value="/about">Study Module</option>
+                <option value="/about">Clock</option>
+                <option value="/about">Calander</option>
+                <option value="/about">Settings</option>
+                <!-- Add more modules/routes as needed -->
+            </select>
+        </nav>
     <footer>
         <p>&copy; 2025 N3ON</p>
     </footer>
