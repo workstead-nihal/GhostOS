@@ -1,17 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>{% block title %}GhostOS{% endblock %}</title>
+    <title>GhostOS Dashboard</title>
+    <style>
+        .dashboard {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .card {
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            color: #fff;
+            min-width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 8px #0006;
+        }
+        .card h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 28px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to GhostOS</h1>
-    </header>
-         <nav>
-            <label for="module-select">Go to module:</label>
+        <h1>GhostOS Dashboard</h1>
+        <nav>
+           <label for="module-select">Go to module:</label>
             <select id="module-select" onchange="location = this.value;">
                 <option value="/">Mind Module</option>
                 <option value="/about">Task Module</option>
@@ -22,7 +42,23 @@
                 <!-- Add more modules/routes as needed -->
             </select>
         </nav>
-    <footer>
+    </header>
+    <main>
+        <div class="dashboard">
+            <div class="card">
+                <h2>Module 1</h2>
+                <p>Quick info or stats</p>
+                <a href="/module1">Open</a>
+            </div>
+            <div class="card">
+                <h2>Module 2</h2>
+                <p>Quick info or stats</p>
+                <a href="/module2">Open</a>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </main>
+        <footer>
         <p>&copy; 2025 N3ON</p>
     </footer>
 </body>
