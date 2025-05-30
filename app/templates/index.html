@@ -2,46 +2,34 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>GhostOS Dashboard</title>
+    <title>GhostOS</title>
     <style>
-        .dashboard {
-            display: flex;
-            gap: 40px;
-            margin-top: 40px;
-        }
-        .card {
-            background: #222;
-            padding: 30px;
-            border-radius: 15px;
-            color: #fff;
-            min-width: 300px;
-            text-align: center;
-            box-shadow: 0 2px 8px #0006;
-        }
-        .card h2 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-        .card p {
-            font-size: 28px;
-        }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>GhostOS Dashboard</h1>
-        <nav>
-           <label for="module-select">Go to module:</label>
-            <select id="module-select" onchange="location = this.value;">
-                <option value="/">Mind Module</option>
-                <option value="/about">Task Module</option>
-                <option value="/about">Study Module</option>
-                <option value="/about">Clock</option>
-                <option value="/about">Calander</option>
-                <option value="/about">Settings</option>
-                <!-- Add more modules/routes as needed -->
-            </select>
-        </nav>
+        <h1 style="text-align:center;">GhostOS Dashboard</h1>
+        
+        <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div class="sidebar" id="sidebar">
+        <a href="#">Mind Module</a>
+        <a href="#">Study Core</a>
+        <a href="#">Misiion Log</a>
+        <a href="#">Clock</a>
+        <a href="#">Calendar</a>
+    </div>
+        <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
     </header>
     <main>
         <div class="dashboard">

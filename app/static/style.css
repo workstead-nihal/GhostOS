@@ -1,25 +1,81 @@
 header {
-  background-color: rgb(4, 6, 7);
+  background-color: rgb(179, 16, 84);
   font-family: monospace;
 }
 h1 {
-  color: rgb(126, 29, 29);
+  color: rgb(17, 0, 253);
 }
 p {
   color: rgb(20, 134, 30);
 
 }
 body {
-  background-color: rgb(46, 46, 46);
+  background-color: rgb(214, 214, 214);
   font-family: monospace;
   font-size: 80px;
 }
 
 nav {
-  margin-top: 20px;
+  margin-top: 80px;
 }
 select {
   font-size: 80px;
   padding: 5px 10px;
   border-radius: 5px;
 }
+        .dashboard {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .card {
+            background: #222;
+            padding: 30px;
+            border-radius: 30px;
+            color: #fff;
+            min-width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 8px #0006;
+        }
+        .card h2 {
+            font-size: 80px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 28px;
+        }
+        body {
+            font-family: typescript;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            left: -250px; /* Initially hidden */
+            top: 0;
+            background-color: #333;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .toggle-btn {
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            
+        }
