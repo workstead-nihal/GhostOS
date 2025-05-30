@@ -14,11 +14,13 @@
         <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
 
     <div class="sidebar" id="sidebar">
-        <a href="#">Mind Module</a>
-        <a href="#">Study Core</a>
-        <a href="#">Misiion Log</a>
-        <a href="#">Clock</a>
-        <a href="#">Calendar</a>
+        <a href="{{ url_for('main.home') }}">Home</a>
+        <a href="{{ url_for('main.mindmodule') }}">Mind Module</a>
+        <a href="{{ url_for('main.studycore') }}">Study Core</a>
+        <a href="{{ url_for('main.missionlog') }}">Mission Log</a>
+        <a href="{{ url_for('main.clock') }}">Clock</a>
+        <a href="{{ url_for('main.calendar') }}">Calendar</a>
+</div>
     </div>
         <script>
         function toggleSidebar() {

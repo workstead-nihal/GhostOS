@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clock</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .clock {
+            font-size: 100px;
+            text-align: center;
+            margin-top: 200px;
+            color: #222;
+        }
+    </style>
+    <style>
+        .clock {
+            font-size: 100px;
+            text-align: center;
+            margin-top: 80px;
+            color: #222;
+        }
+        .pomodoro {
+            text-align: center;
+            margin-top: 60px;
+        }
+        .pomodoro-timer {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #b31054;
+        }
+        .pomodoro button {
+            font-size: 32px;
+            padding: 10px 30px;
+            margin: 0 10px;
+            border-radius: 8px;
+            border: none;
+            background: #222;
+            color: #fff;
+            cursor: pointer;
+        }
+        .pomodoro button:hover {
+            background: #b31054;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock" id="clock"></div>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let h = now.getHours().toString().padStart(2, '0');
+            let m = now.getMinutes().toString().padStart(2, '0');
+            let s = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+     <div class="clock" id="clock"></div>
+    <div class="pomodoro">
+        <div class="pomodoro-timer" id="pomodoro-timer">25:00</div>
+        <button onclick="startPomodoro()">Start</button>
+        <button onclick="pausePomodoro()">Pause</button>
+        <button onclick="resetPomodoro()">Reset</button>
+    </div>
+    <script>
+        // Digital Clock
+        function updateClock() {
+            const now = new Date();
+            let h = now.getHours().toString().padStart(2, '0');
+            let m = now.getMinutes().toString().padStart(2, '0');
+            let s = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Pomodoro Timer
+        let pomodoroDuration = 25 * 60; // 25 minutes
+        let pomodoroTime = pomodoroDuration;
+        let pomodoroInterval = null;
+        let isRunning = false;
+
+        function updatePomodoroDisplay() {
+            let min = Math.floor(pomodoroTime / 60).toString().padStart(2, '0');
+            let sec = (pomodoroTime % 60).toString().padStart(2, '0');
+            document.getElementById('pomodoro-timer').textContent = `${min}:${sec}`;
+        }
+
+        function startPomodoro() {
+            if (isRunning) return;
+            isRunning = true;
+            pomodoroInterval = setInterval(() => {
+                if (pomodoroTime > 0) {
+                    pomodoroTime--;
+                    updatePomodoroDisplay();
+                } else {
+                    clearInterval(pomodoroInterval);
+                    isRunning = false;
+                    alert("Pomodoro complete! Take a break.");
+                }
+            }, 1000);
+        }
+
+        function pausePomodoro() {
+            clearInterval(pomodoroInterval);
+            isRunning = false;
+        }
+
+        function resetPomodoro() {
+            clearInterval(pomodoroInterval);
+            pomodoroTime = pomodoroDuration;
+            updatePomodoroDisplay();
+            isRunning = false;
+        }
+
+        updatePomodoroDisplay();
+    </script>
+</body>
+</html>
