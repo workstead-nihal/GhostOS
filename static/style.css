@@ -1,5 +1,20 @@
-p {
-        font-size: 66px;
-        line-height: 1.5;
-        color: #ff0000;
+#body{
+    font-family: Typescript, sans-serif;   
     }
+header{
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+.navbar{
+    display: flex;
+    justify-content: center;
+    background-color: #0481fd;
+}
+.nav-links{
+    color: rgb(1, 255, 128);
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
